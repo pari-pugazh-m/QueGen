@@ -1,0 +1,25 @@
+.right-part {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .latex-preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: 80vh;
+    width: 56.25vh; 
+    max-width: 800px; 
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #000000;
+    
+      display: flex;
+      justify-content: center;
+
+
+    
+    
+  }
+  

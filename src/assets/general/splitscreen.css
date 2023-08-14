@@ -1,0 +1,25 @@
+.splitscreen {
+    position: relative;
+    display: flex;
+    left: 63px;
+    height: 100vh;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.left { 
+    max-width: 30%;
+    border-right: 3px solid #000000;
+    background: rgb(2,0,36);
+    background: rgb(192,191,198);
+    background: linear-gradient(142deg, rgba(192,191,198,1) 0%, rgba(190,201,255,1) 100%);
+}
+
+.right {
+    background: rgb(84,84,84);
+    background: linear-gradient(331deg, rgb(214, 150, 150) 0%, rgb(255, 226, 226) 100%);
+}

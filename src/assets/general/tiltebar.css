@@ -1,0 +1,15 @@
+/* titlebar.css */
+
+.titlebar {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+  }
+  
+  .titlebar__title h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+  
