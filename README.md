@@ -13,7 +13,3 @@ To install the required dependencies, run the following command:
 npm install
 npm run dev
 ```
-Make sure to also Install:
-```sh
-npm install katex
-```
