@@ -3,7 +3,7 @@
 This tool helps in generating well-formatted question papers using the LaTeX document preparation system.
 
 ## Work in Progress
-Please note that the formatting and download feature is currently under development and may not be fully functional.
+Please note that the formatting and download features are currently under development and may not be fully functional.
 
 ## Installation
 
