@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pageno from "../pageno/pageno";
-import Input from "../input/input.jsx";
-import Preview from "../preview/preview"; // Make sure the path is correct
+import Input from "../input/input";
+import Preview from "../preview/preview";
 import "./splitscreen.css";
 
 function Splitscreen({ selectedPart, selectedQuestion }) {
-  const [latexData, setLatexData] = useState("");
+  const [tableData, setTableData] = useState([]);
 
-  const updateLatexData = (data) => {
-    setLatexData(data);
+  const updateTableData = (data) => {
+    // Update the table data with the new row
+    setTableData((prevTableData) => [...prevTableData, ...data]);
   };
 
   return (
@@ -18,11 +19,13 @@ function Splitscreen({ selectedPart, selectedQuestion }) {
         <Input
           selectedPart={selectedPart}
           selectedQuestion={selectedQuestion}
-          updateLatexData={updateLatexData}
+          updateTableData={updateTableData} // Use the correct function name
         />
       </div>
       <div className="right">
-        <Preview latexData={latexData} selectedPart={selectedPart} selectedQuestion={selectedQuestion}/>
+        <Preview
+          tableData={tableData} // Pass the updated table data to the Preview component
+        />
       </div>
     </div>
   );

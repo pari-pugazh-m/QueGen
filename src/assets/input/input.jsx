@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./input.css";
 
-function Input({ selectedPart, selectedQuestion, updateLatexData }) {
+function Input({ selectedPart, selectedQuestion, updateTableData }) { // Rename the prop to updateTableData
   const [inputValues, setInputValues] = useState({});
 
   useEffect(() => {
@@ -67,19 +67,21 @@ function Input({ selectedPart, selectedQuestion, updateLatexData }) {
   
   
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-    // Call the updateLatexData function to store the input values
-    updateLatexData(inputValues);
+    event.preventDefault();
+
+    // Construct the table data using the input values
+    const tableRow = [
+      selectedQuestion,
+      inputValues[selectedPart]?.[selectedQuestion]?.question || "",
+      inputValues[selectedPart]?.[selectedQuestion]?.co || "",
+      inputValues[selectedPart]?.[selectedQuestion]?.bloom || "",
+      inputValues[selectedPart]?.[selectedQuestion]?.marks || ""
+    ];
+
+    // Call the updateTableData function to store the table data
+    updateTableData([tableRow]);
   };
-  
-  const generateLatexContent = () => {
-    const { question, co, bloom, marks } = inputValues[selectedPart]?.[selectedQuestion] || {};
-    return `\\begin{tabular}{|c|c|c|c|c|}
-      \\hline
-      S.No & Question & CO & Bloom & Marks \\\\ \\hline
-      ${selectedQuestion} & ${question || ""} & ${co || ""} & ${bloom || ""} & ${marks || ""} \\\\ \\hline
-      \\end{tabular}`;
-  };
+
 
   return (
     <div className="input">
@@ -125,7 +127,7 @@ function Input({ selectedPart, selectedQuestion, updateLatexData }) {
           <input type="file" accept="image/*" />
         </div>
         <div className="form-row">
-          <button type="submit" onClick={handleSubmit}>
+          <button className="button-submit" type="submit" onClick={handleSubmit}>
             Submit
           </button>
         </div>
